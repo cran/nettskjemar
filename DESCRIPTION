@@ -1,31 +1,34 @@
-Package: nettskjemar
 Type: Package
+Package: nettskjemar
 Title: Connect to the 'nettskjema.no' API of the University of Oslo
-Version: 0.1.4
+Version: 1.0.0
 Authors@R: c(
-            person("Athanasia Mo", "Mowinckel", 
-                    email = "a.m.mowinckel@psykologi.uio.no", 
-                    role = c("aut", "cre"),
-                    comment = c(ORCID = "0000-0002-5756-0223"))
-            )
-Description: Enables users to retrieve data, meta-data, and codebooks 
-    from <https://nettskjema.no/>. The data from the API is richer than from the
-    online data portal. Mowinckel (2021) <doi:10.5281/zenodo.4745481>.
+    person("Athanasia Mo", "Mowinckel", , "a.m.mowinckel@psykologi.uio.no", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-5756-0223")),
+    person("Trym Nohr", "Fjørtoft", , "t.n.fjortoft@arena.uio.no", role = "ctb",
+           comment = c(ORCID = "0000-0002-7654-4587"))
+  )
+Description: Enables users to retrieve data, meta-data, and codebooks from
+    <https://nettskjema.no/>. The data from the API is richer than from
+    the online data portal. Mowinckel (2021) <doi:10.5281/zenodo.4745481>.
 License: MIT + file LICENSE
-Encoding: UTF-8
-Imports: dplyr, tidyr, usethis, here, httr, jsonlite, purrr, xml2,
-        rvest, pbapply
-Suggests: knitr, rmarkdown, testthat (>= 2.1.0), covr, spelling
-RoxygenNote: 7.1.1
-URL: https://github.com/LCBC-UiO/nettskjemar,
-        https://zenodo.org/badge/latestdoi/206264675
-BugReports: https://github.com/LCBC-UiO/nettskjemar/issues
+URL: https://github.com/CAPRO-UiO/nettskjemar,
+        https://zenodo.org/badge/latestdoi/206264675,
+        https://github.com/capro-uio/nettskjemar
+BugReports: https://github.com/capro-uio/nettskjemar/issues
+Depends: R (>= 4.1.0)
+Imports: cli, fs, httr2, jsonlite
+Suggests: covr, knitr, rmarkdown, spelling, testthat (>= 2.1.0), vcr
+        (>= 0.6.0)
 VignetteBuilder: knitr
+Encoding: UTF-8
 Language: en-US
+RoxygenNote: 7.3.2
 NeedsCompilation: no
-Packaged: 2021-05-19 13:07:13 UTC; athanasm
+Packaged: 2025-03-17 13:46:02 UTC; athanasm
 Author: Athanasia Mo Mowinckel [aut, cre]
-    (<https://orcid.org/0000-0002-5756-0223>)
+    (<https://orcid.org/0000-0002-5756-0223>),
+  Trym Nohr Fjørtoft [ctb] (<https://orcid.org/0000-0002-7654-4587>)
 Maintainer: Athanasia Mo Mowinckel <a.m.mowinckel@psykologi.uio.no>
 Repository: CRAN
-Date/Publication: 2021-05-20 07:10:05 UTC
+Date/Publication: 2025-03-17 14:00:02 UTC

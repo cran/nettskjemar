@@ -1,3 +1,25 @@
+# nettskjemar 1.0.0
+
+- Port to Nettskjema API v3
+- improved function names, with shorter `ns` prefix
+- Add support for Haven labelled data
+- Improved vignettes
+- Adds tests
+
+
+# nettskjemar 0.1.4.008
+
+- add functions to download attachments
+- binaries returned as integer rather than double
+- added general usage vignette
+
+# nettskjemar 0.1.4.004
+
+- add linear scale support  
+- fix bugs in codebook and meta data that did not retrieve question data  
+- force writing raw codebook and raw metadata to json extension  
+- add direct check for if a form has codebook `has_codebook()`
+
 # nettskjemar 0.1.4
 
 * simplification of internal code  

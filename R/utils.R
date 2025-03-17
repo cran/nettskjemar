@@ -1,74 +1,44 @@
-valid_form_inf <- function(){
-  c("title", "language",
-    "created", "modified", "opened",
-    "respondents", "contact","codebook",
-    "personal_data", "sensitive_data",
-    "editors", "elements")
+#' remove file extension
+#'
+#' @template path
+#'
+#' @return string without file extension
+#' @importFrom tools file_ext
+#' @noRd
+rm_ext <- function(path) {
+  ex <- file_ext(path)
+  ex <- sprintf(".%s$", ex)
+  gsub(ex, "", path)
 }
 
-#' @importFrom rvest html_text
-#' @importFrom xml2 read_html
-strip_html <- function(s) {
-  if(!is.na(s))
-    s <- gsub("\\\n|\\\t", "", html_text(read_html(s)))
-  s
+#' assign b if a is nothing
+#' @noRd
+`%||%` <- function(a, b) {
+  if (length(a) == 0) return(b)
+  if (is.na(a) || is.null(a) || a == "") return(b)
+  a
 }
 
-max_selected <- function(x){
-  t <- x$maxSelectedAnswerOptions
-  ifelse(t == 0, NaN, t)
+merge_el <- function(df1, df2) {
+  merge(df1, df2, by = "element_no", all = TRUE)
 }
 
-check_element <- function(x){
-  if(length(x) == 1)
-    return(x)
 
-  NULL
+list2df <- function(x) {
+  y <- lapply(x, list2row)
+  y <- do.call(rbind, y)
+  as.data.frame(y)
 }
 
-#' @importFrom stats setNames
-validate_information <- function(information) {
+list2row <- function(x) {
+  x <- null2na(x)
+  as.data.frame(x)
+}
 
-  inf_nms <- if(is.null(names(information))){
-    information
-  }else{
-    names(information)
+null2na <- function(x) {
+  idx <- which(sapply(x, is.null))
+  for (i in idx) {
+    x[[i]] <- NA
   }
-
-  setNames(match.arg(unlist(information),
-                     info(),
-                     several.ok = TRUE),
-           inf_nms)
-}
-
-info <- function(){
-  c("order", "option",
-    "correct", "preselected")
-}
-
-rn_cols <- function(x, from, to){
-  gsub(paste0(from, "$"), to, x)
-}
-
-get_renv_path <- function(type = c("user", "project"),
-                          envvar = "R_ENVIRON_USER"){
-  envvar <- Sys.getenv(envvar)
-
-  if(envvar != "") return(envvar)
-
-  type <- match.arg(type, c("user", "project"))
-
-  type <- switch(type,
-                 "user" = Sys.getenv("HOME"),
-                 "project" = here::here()
-  )
-
-  file.path(file.path(type, ".Renviron"))
-}
-
-## quiets concerns of R CMD check
-if(getRversion() >= "2.15.1"){
-  utils::globalVariables(c("question_codebook","cb", "question", "answer", "columns",
-                           "string", "value",
-                           "form_id", "element_no", "submission_id"))
+  x
 }
