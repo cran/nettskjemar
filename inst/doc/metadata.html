@@ -455,17 +455,17 @@ metadata object as you would with any list.</p>
 <h3>Example: Access Specific Metadata Fields</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># Access the title of the form</span></span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>form_meta<span class="sc">$</span>title</span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">#&gt; [1] &quot;API test form&quot;</span></span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co"># Check the number of submissions</span></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>num_submissions <span class="ot">&lt;-</span> form_meta<span class="sc">$</span>numberOfSubmissions</span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Number of submissions:&quot;</span>, num_submissions))</span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Number of submissions: 3&quot;</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co"># Check if the form is open</span></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>is_open <span class="ot">&lt;-</span> form_meta<span class="sc">$</span>isOpen</span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Is the form open?:&quot;</span>, is_open))</span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Is the form open?: FALSE&quot;</span></span></code></pre></div>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">#&gt; [1] &quot;API test form&quot;</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co"># Check the number of submissions</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>num_submissions <span class="ot">&lt;-</span> form_meta<span class="sc">$</span>numberOfSubmissions</span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Number of submissions:&quot;</span>, num_submissions))</span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Number of submissions: 3&quot;</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co"># Check if the form is open</span></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>is_open <span class="ot">&lt;-</span> form_meta<span class="sc">$</span>isOpen</span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Is the form open?:&quot;</span>, is_open))</span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Is the form open?: FALSE&quot;</span></span></code></pre></div>
 </div>
 </div>
 <div id="saving-metadata-to-a-file-ns_write_meta" class="section level1">
@@ -476,19 +476,19 @@ function writes the metadata into a JSON file, preserving all its
 information in a structured format.</p>
 <div id="example-save-metadata-as-a-json-file" class="section level2">
 <h2>Example: Save Metadata as a JSON File</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># Replace with your desired file path</span></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>output_path <span class="ot">&lt;-</span> <span class="st">&quot;meta_110000.json&quot;</span></span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co"># Save the metadata to the specified path</span></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="fu">ns_write_meta</span>(form_meta, output_path)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co"># Replace with your desired file path</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>output_path <span class="ot">&lt;-</span> <span class="st">&quot;meta_110000.json&quot;</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co"># Save the metadata to the specified path</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="fu">ns_write_meta</span>(form_meta, output_path)</span></code></pre></div>
 <div id="example-save-metadata-to-a-custom-path" class="section level3">
 <h3>Example: Save Metadata to a Custom Path</h3>
 <p>If your file doesn’t have a <code>.json</code> extension, the
 function will automatically append it to the file name.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co"># Save to a file without .json extension</span></span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">ns_write_meta</span>(form_meta, <span class="st">&quot;meta_file&quot;</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co"># The file will be saved as &quot;meta_file.json&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># Save to a file without .json extension</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">ns_write_meta</span>(form_meta, <span class="st">&quot;meta_file&quot;</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co"># The file will be saved as &quot;meta_file.json&quot;</span></span></code></pre></div>
 </div>
 <div id="example-use-custom-json-formatting-options" class="section level3">
 <h3>Example: Use Custom JSON Formatting Options</h3>
@@ -496,8 +496,8 @@ function will automatically append it to the file name.</p>
 arguments passed to the <a href="https://cran.r-project.org/package=jsonlite">jsonlite::write_json</a>
 function. For example, you can specify <code>pretty = TRUE</code> for a
 more human-readable format.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co"># Save the metadata in a pretty-printed JSON file</span></span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="fu">ns_write_meta</span>(form_meta, <span class="st">&quot;pretty_meta.json&quot;</span>, <span class="at">pretty =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># Save the metadata in a pretty-printed JSON file</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="fu">ns_write_meta</span>(form_meta, <span class="st">&quot;pretty_meta.json&quot;</span>, <span class="at">pretty =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 </div>
 </div>
 </div>

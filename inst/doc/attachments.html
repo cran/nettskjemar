@@ -361,16 +361,18 @@ about the available attachments.</p>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="co"># Example: List attachments for a specific submission</span></span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>submission_id <span class="ot">&lt;-</span> <span class="dv">27685292</span></span>
 <span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">ns_list_submission_attachments</span>(submission_id)</span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co">#&gt;   submissionId  answerId elementId externalElementId</span></span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="co">#&gt; 1     27685292 158263134   1641713      attachment_1</span></span>
-<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="co">#&gt;   textAnswer answerAttachmentId  filename mediaType</span></span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="co">#&gt; 1  sølvi.png             538819 sølvi.png image/png</span></span>
-<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="co">#&gt;     size elementType attachment.answerAttachmentId</span></span>
-<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="co">#&gt; 1 628613  ATTACHMENT                        538819</span></span>
-<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="co">#&gt;   attachment.filename attachment.mediaType</span></span>
-<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="co">#&gt; 1           sølvi.png            image/png</span></span>
-<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="co">#&gt;   attachment.size counter</span></span>
-<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="co">#&gt; 1          628613       1</span></span></code></pre></div>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co">#&gt;   submissionId  answerId elementId</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="co">#&gt; 1     27685292 158263134   1641713</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="co">#&gt;   externalElementId textAnswer</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="co">#&gt; 1      attachment_1  sølvi.png</span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="co">#&gt;   answerAttachmentId  filename mediaType   size</span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="co">#&gt; 1             538819 sølvi.png image/png 628613</span></span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="co">#&gt;   elementType attachment.answerAttachmentId</span></span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="co">#&gt; 1  ATTACHMENT                        538819</span></span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="co">#&gt;   attachment.filename attachment.mediaType</span></span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="co">#&gt; 1           sølvi.png            image/png</span></span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="co">#&gt;   attachment.size counter</span></span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="co">#&gt; 1          628613       1</span></span></code></pre></div>
 <p>This function returns a <code>data.frame</code> with details such as
 the attachment ID, original filename, and standardized filename.</p>
 </div>
@@ -381,30 +383,33 @@ the attachment ID, original filename, and standardized filename.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># Example: List attachments for an entire form</span></span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>formid <span class="ot">&lt;-</span> <span class="dv">123823</span></span>
 <span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">ns_list_form_attachments</span>(formid)</span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co">#&gt;    formid formId submissionId  answerId elementId</span></span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">#&gt; 16 123823 123823     27685292 158263134   1641713</span></span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co">#&gt; 32 123823 123823     27685302 158263185   3525020</span></span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">#&gt;    externalElementId  textAnswer answerOptionIds</span></span>
-<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#&gt; 16      attachment_1   sølvi.png                </span></span>
-<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co">#&gt; 32      attachment_2 marius.jpeg                </span></span>
-<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co">#&gt;    externalAnswerOptionIds elementType</span></span>
-<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt; 16                          ATTACHMENT</span></span>
-<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt; 32                          ATTACHMENT</span></span>
-<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt;            createdDate        modifiedDate</span></span>
-<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">#&gt; 16 2023-06-01T20:57:15 2023-06-01T20:57:15</span></span>
-<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co">#&gt; 32 2023-06-01T20:58:33 2023-06-01T20:58:33</span></span>
-<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="co">#&gt;    subElementId answerAttachmentId    filename</span></span>
-<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a><span class="co">#&gt; 16           NA             538819   sølvi.png</span></span>
-<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a><span class="co">#&gt; 32           NA             538820 marius.jpeg</span></span>
-<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a><span class="co">#&gt;     mediaType   size attachment.answerAttachmentId</span></span>
-<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a><span class="co">#&gt; 16  image/png 628613                        538819</span></span>
-<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a><span class="co">#&gt; 32 image/jpeg  89494                        538820</span></span>
-<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a><span class="co">#&gt;    attachment.filename attachment.mediaType</span></span>
-<span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a><span class="co">#&gt; 16           sølvi.png            image/png</span></span>
-<span id="cb2-24"><a href="#cb2-24" tabindex="-1"></a><span class="co">#&gt; 32         marius.jpeg           image/jpeg</span></span>
-<span id="cb2-25"><a href="#cb2-25" tabindex="-1"></a><span class="co">#&gt;    attachment.size counter</span></span>
-<span id="cb2-26"><a href="#cb2-26" tabindex="-1"></a><span class="co">#&gt; 16          628613       1</span></span>
-<span id="cb2-27"><a href="#cb2-27" tabindex="-1"></a><span class="co">#&gt; 32           89494       1</span></span></code></pre></div>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co">#&gt;    formid formId submissionId  answerId</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">#&gt; 16 123823 123823     27685292 158263134</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co">#&gt; 32 123823 123823     27685302 158263185</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">#&gt;    elementId externalElementId  textAnswer</span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#&gt; 16   1641713      attachment_1   sølvi.png</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co">#&gt; 32   3525020      attachment_2 marius.jpeg</span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co">#&gt;    answerOptionIds externalAnswerOptionIds</span></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt; 16                                        </span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt; 32                                        </span></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt;    elementType         createdDate</span></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">#&gt; 16  ATTACHMENT 2023-06-01T20:57:15</span></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co">#&gt; 32  ATTACHMENT 2023-06-01T20:58:33</span></span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="co">#&gt;           modifiedDate subElementId</span></span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a><span class="co">#&gt; 16 2023-06-01T20:57:15           NA</span></span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a><span class="co">#&gt; 32 2023-06-01T20:58:33           NA</span></span>
+<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a><span class="co">#&gt;    answerAttachmentId    filename  mediaType</span></span>
+<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a><span class="co">#&gt; 16             538819   sølvi.png  image/png</span></span>
+<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a><span class="co">#&gt; 32             538820 marius.jpeg image/jpeg</span></span>
+<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a><span class="co">#&gt;      size attachment.answerAttachmentId</span></span>
+<span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a><span class="co">#&gt; 16 628613                        538819</span></span>
+<span id="cb2-24"><a href="#cb2-24" tabindex="-1"></a><span class="co">#&gt; 32  89494                        538820</span></span>
+<span id="cb2-25"><a href="#cb2-25" tabindex="-1"></a><span class="co">#&gt;    attachment.filename attachment.mediaType</span></span>
+<span id="cb2-26"><a href="#cb2-26" tabindex="-1"></a><span class="co">#&gt; 16           sølvi.png            image/png</span></span>
+<span id="cb2-27"><a href="#cb2-27" tabindex="-1"></a><span class="co">#&gt; 32         marius.jpeg           image/jpeg</span></span>
+<span id="cb2-28"><a href="#cb2-28" tabindex="-1"></a><span class="co">#&gt;    attachment.size counter</span></span>
+<span id="cb2-29"><a href="#cb2-29" tabindex="-1"></a><span class="co">#&gt; 16          628613       1</span></span>
+<span id="cb2-30"><a href="#cb2-30" tabindex="-1"></a><span class="co">#&gt; 32           89494       1</span></span></code></pre></div>
 </div>
 </div>
 <div id="downloading-attachments" class="section level1">

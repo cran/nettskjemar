@@ -369,29 +369,6 @@ ID</strong> (a unique identifier for each submission).</p>
 submission.</p>
 </div>
 </div>
-<div id="downloading-a-submission-as-a-pdf-ns_get_submission_pdf" class="section level1">
-<h1>Downloading a Submission as a PDF:
-<code>ns_get_submission_pdf</code></h1>
-<p>The <code>ns_get_submission_pdf</code> function downloads a single
-submission as a PDF file. By default, the PDF is named using the
-submission ID and saved in the current working directory.</p>
-<div id="example-download-submission-pdf" class="section level2">
-<h2>Example: Download Submission PDF</h2>
-<p>Here is how you can download a single submission as a PDF:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># Download the submission as a PDF</span></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">ns_get_submission_pdf</span>(submission_id)</span></code></pre></div>
-<div id="saving-to-a-custom-path" class="section level3">
-<h3>Saving to a Custom Path</h3>
-<p>To save the PDF to a specific location, specify the <code>path</code>
-argument:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co"># Custom location for saving the PDF</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>custom_path <span class="ot">&lt;-</span> <span class="st">&quot;~/Desktop/my_submission.pdf&quot;</span></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co"># Download and save to the custom path</span></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="fu">ns_get_submission_pdf</span>(submission_id, <span class="at">path =</span> custom_path)</span></code></pre></div>
-</div>
-</div>
-</div>
 
 
 

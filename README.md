@@ -58,13 +58,45 @@ nettskjema.
 ``` r
 library(nettskjemar)
 
-nettskjema_get_data(nettskjema_id)
+ns_get_data(123823)
+#>   formid $submission_id                  $created       freetext radio
+#> 1 123823       27685292 2023-06-01T20:57:15+02:00      some text     1
+#> 2 123823       27685302 2023-06-01T20:58:33+02:00 another answer    -1
+#> 3 123823       27685319 2023-06-01T20:59:50+02:00                   -1
+#>   checkbox.questionnaires checkbox.events checkbox.logs dropdown
+#> 1                       1               1             0        4
+#> 2                       0               0             1        9
+#> 3                       1               1             1        4
+#>   radio_matrix.grants radio_matrix.lecture radio_matrix.email
+#> 1                   1                    2                  2
+#> 2                   3                    3                  1
+#> 3                   1                    1                  1
+#>   checkbox_matrix.1.IT checkbox_matrix.1.colleague checkbox_matrix.1.admin
+#> 1                    1                           1                       0
+#> 2                    0                           0                       0
+#> 3                    0                           1                       0
+#>   checkbox_matrix.1.union checkbox_matrix.1.internet checkbox_matrix.2.IT
+#> 1                       0                          0                    0
+#> 2                       0                          1                    0
+#> 3                       0                          1                    1
+#>   checkbox_matrix.2.colleague checkbox_matrix.2.admin checkbox_matrix.2.union
+#> 1                           0                       1                       0
+#> 2                           0                       1                       1
+#> 3                           1                       1                       1
+#>   checkbox_matrix.2.internet       date  time         datetime number_decimal
+#> 1                          0 2023-06-01 12:00 2023-06-12T13:33            4.5
+#> 2                          0 2023-02-07 14:45 2024-02-15T08:55            2.2
+#> 3                          0 2022-09-28 05:11 2022-03-03T07:29             10
+#>   number_integer slider attachment_1 attachment_2 $answer_time_ms
+#> 1             77      3    sølvi.png                        74630
+#> 2             45      1               marius.jpeg           71313
+#> 3             98      9                                     70230
 ```
 
 ## Documentation
 
 Package documentation can be found on the associated [GitHub
-pages](https://www.capro.dev/nettskjemar/), where there are 6 tutorials.
+pages](https://www.capro.dev/nettskjemar/), where there are 7 tutorials.
 
 # Citation
 
