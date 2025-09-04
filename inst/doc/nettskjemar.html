@@ -48,8 +48,9 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -60,7 +61,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -382,51 +383,23 @@ data.frame).</p>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">ns_get_data</span>(formid)</span>
 <span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>data</span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="co">#&gt;   formid $submission_id</span></span>
-<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="co">#&gt; 1 123823       27685292</span></span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="co">#&gt;                    $created</span></span>
-<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="co">#&gt; 1 2023-06-01T20:57:15+02:00</span></span>
-<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="co">#&gt;    freetext radio</span></span>
-<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="co">#&gt; 1 some text     1</span></span>
-<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="co">#&gt;   checkbox.questionnaires</span></span>
-<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="co">#&gt; 1                       1</span></span>
-<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="co">#&gt;   checkbox.events checkbox.logs</span></span>
-<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="co">#&gt; 1               1             0</span></span>
-<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="co">#&gt;   dropdown radio_matrix.grants</span></span>
-<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a><span class="co">#&gt; 1        4                   1</span></span>
-<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="co">#&gt;   radio_matrix.lecture</span></span>
-<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a><span class="co">#&gt; 1                    2</span></span>
-<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a><span class="co">#&gt;   radio_matrix.email</span></span>
-<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a><span class="co">#&gt; 1                  2</span></span>
-<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a><span class="co">#&gt;   checkbox_matrix.1.IT</span></span>
-<span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a><span class="co">#&gt; 1                    1</span></span>
-<span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a><span class="co">#&gt;   checkbox_matrix.1.colleague</span></span>
-<span id="cb1-25"><a href="#cb1-25" tabindex="-1"></a><span class="co">#&gt; 1                           1</span></span>
-<span id="cb1-26"><a href="#cb1-26" tabindex="-1"></a><span class="co">#&gt;   checkbox_matrix.1.admin</span></span>
-<span id="cb1-27"><a href="#cb1-27" tabindex="-1"></a><span class="co">#&gt; 1                       0</span></span>
-<span id="cb1-28"><a href="#cb1-28" tabindex="-1"></a><span class="co">#&gt;   checkbox_matrix.1.union</span></span>
-<span id="cb1-29"><a href="#cb1-29" tabindex="-1"></a><span class="co">#&gt; 1                       0</span></span>
-<span id="cb1-30"><a href="#cb1-30" tabindex="-1"></a><span class="co">#&gt;   checkbox_matrix.1.internet</span></span>
-<span id="cb1-31"><a href="#cb1-31" tabindex="-1"></a><span class="co">#&gt; 1                          0</span></span>
-<span id="cb1-32"><a href="#cb1-32" tabindex="-1"></a><span class="co">#&gt;   checkbox_matrix.2.IT</span></span>
-<span id="cb1-33"><a href="#cb1-33" tabindex="-1"></a><span class="co">#&gt; 1                    0</span></span>
-<span id="cb1-34"><a href="#cb1-34" tabindex="-1"></a><span class="co">#&gt;   checkbox_matrix.2.colleague</span></span>
-<span id="cb1-35"><a href="#cb1-35" tabindex="-1"></a><span class="co">#&gt; 1                           0</span></span>
-<span id="cb1-36"><a href="#cb1-36" tabindex="-1"></a><span class="co">#&gt;   checkbox_matrix.2.admin</span></span>
-<span id="cb1-37"><a href="#cb1-37" tabindex="-1"></a><span class="co">#&gt; 1                       1</span></span>
-<span id="cb1-38"><a href="#cb1-38" tabindex="-1"></a><span class="co">#&gt;   checkbox_matrix.2.union</span></span>
-<span id="cb1-39"><a href="#cb1-39" tabindex="-1"></a><span class="co">#&gt; 1                       0</span></span>
-<span id="cb1-40"><a href="#cb1-40" tabindex="-1"></a><span class="co">#&gt;   checkbox_matrix.2.internet</span></span>
-<span id="cb1-41"><a href="#cb1-41" tabindex="-1"></a><span class="co">#&gt; 1                          0</span></span>
-<span id="cb1-42"><a href="#cb1-42" tabindex="-1"></a><span class="co">#&gt;         date  time         datetime</span></span>
-<span id="cb1-43"><a href="#cb1-43" tabindex="-1"></a><span class="co">#&gt; 1 2023-06-01 12:00 2023-06-12T13:33</span></span>
-<span id="cb1-44"><a href="#cb1-44" tabindex="-1"></a><span class="co">#&gt;   number_decimal number_integer</span></span>
-<span id="cb1-45"><a href="#cb1-45" tabindex="-1"></a><span class="co">#&gt; 1            4.5           77.0</span></span>
-<span id="cb1-46"><a href="#cb1-46" tabindex="-1"></a><span class="co">#&gt;   slider attachment_1 attachment_2</span></span>
-<span id="cb1-47"><a href="#cb1-47" tabindex="-1"></a><span class="co">#&gt; 1      3    sølvi.png             </span></span>
-<span id="cb1-48"><a href="#cb1-48" tabindex="-1"></a><span class="co">#&gt;   $answer_time_ms</span></span>
-<span id="cb1-49"><a href="#cb1-49" tabindex="-1"></a><span class="co">#&gt; 1           74630</span></span>
-<span id="cb1-50"><a href="#cb1-50" tabindex="-1"></a><span class="co">#&gt;  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 2 rows ]</span></span></code></pre></div>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="co">#&gt;   formid $submission_id                  $created  freetext radio</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="co">#&gt; 1 123823       27685292 2023-06-01T20:57:15+02:00 some text     1</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="co">#&gt;   checkbox.questionnaires checkbox.events checkbox.logs dropdown</span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="co">#&gt; 1                       1               1             0        4</span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="co">#&gt;   radio_matrix.grants radio_matrix.lecture radio_matrix.email</span></span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="co">#&gt; 1                   1                    2                  2</span></span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="co">#&gt;   checkbox_matrix.1.IT checkbox_matrix.1.colleague checkbox_matrix.1.admin</span></span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="co">#&gt; 1                    1                           1                       0</span></span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="co">#&gt;   checkbox_matrix.1.union checkbox_matrix.1.internet checkbox_matrix.2.IT</span></span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="co">#&gt; 1                       0                          0                    0</span></span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="co">#&gt;   checkbox_matrix.2.colleague checkbox_matrix.2.admin checkbox_matrix.2.union</span></span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a><span class="co">#&gt; 1                           0                       1                       0</span></span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="co">#&gt;   checkbox_matrix.2.internet       date  time         datetime number_decimal</span></span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a><span class="co">#&gt; 1                          0 2023-06-01 12:00 2023-06-12T13:33            4.5</span></span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a><span class="co">#&gt;   number_integer slider attachment_1 attachment_2 $answer_time_ms</span></span>
+<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a><span class="co">#&gt; 1           77.0      3    sølvi.png                        74630</span></span>
+<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a><span class="co">#&gt;  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 2 rows ]</span></span></code></pre></div>
 <p>You will notice three columns that are prefixed with <code>$</code>.
 These are columns automatically added by the Nettskjema backend to your
 data, and the prefix is used to denote exactly this.</p>
@@ -446,46 +419,22 @@ which question the row is for, and another which is the response to that
 question.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># Fetch raw data</span></span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">ns_get_data</span>(formid, <span class="at">type =</span> <span class="st">&quot;long&quot;</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">#&gt;   formid formId submissionId</span></span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co">#&gt; 1 123823 123823     27685292</span></span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">#&gt; 2 123823 123823     27685292</span></span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co">#&gt;    answerId elementId</span></span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">#&gt; 1 158263133   1641697</span></span>
-<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#&gt; 2 158263124   1641698</span></span>
-<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co">#&gt;   externalElementId textAnswer</span></span>
-<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co">#&gt; 1          freetext  some text</span></span>
-<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt; 2             radio       &lt;NA&gt;</span></span>
-<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt;   answerOptionIds</span></span>
-<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt; 1                </span></span>
-<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">#&gt; 2         3879435</span></span>
-<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co">#&gt;   externalAnswerOptionIds</span></span>
-<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="co">#&gt; 1                        </span></span>
-<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a><span class="co">#&gt; 2                       1</span></span>
-<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a><span class="co">#&gt;   elementType         createdDate</span></span>
-<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a><span class="co">#&gt; 1    QUESTION 2023-06-01T20:57:15</span></span>
-<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a><span class="co">#&gt; 2       RADIO 2023-06-01T20:57:15</span></span>
-<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a><span class="co">#&gt;          modifiedDate subElementId</span></span>
-<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a><span class="co">#&gt; 1 2023-06-01T20:57:15           NA</span></span>
-<span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a><span class="co">#&gt; 2 2023-06-01T20:57:15           NA</span></span>
-<span id="cb2-24"><a href="#cb2-24" tabindex="-1"></a><span class="co">#&gt;   answerAttachmentId filename</span></span>
-<span id="cb2-25"><a href="#cb2-25" tabindex="-1"></a><span class="co">#&gt; 1                 NA     &lt;NA&gt;</span></span>
-<span id="cb2-26"><a href="#cb2-26" tabindex="-1"></a><span class="co">#&gt; 2                 NA     &lt;NA&gt;</span></span>
-<span id="cb2-27"><a href="#cb2-27" tabindex="-1"></a><span class="co">#&gt;   mediaType size</span></span>
-<span id="cb2-28"><a href="#cb2-28" tabindex="-1"></a><span class="co">#&gt; 1      &lt;NA&gt;   NA</span></span>
-<span id="cb2-29"><a href="#cb2-29" tabindex="-1"></a><span class="co">#&gt; 2      &lt;NA&gt;   NA</span></span>
-<span id="cb2-30"><a href="#cb2-30" tabindex="-1"></a><span class="co">#&gt;   attachment.answerAttachmentId</span></span>
-<span id="cb2-31"><a href="#cb2-31" tabindex="-1"></a><span class="co">#&gt; 1                            NA</span></span>
-<span id="cb2-32"><a href="#cb2-32" tabindex="-1"></a><span class="co">#&gt; 2                            NA</span></span>
-<span id="cb2-33"><a href="#cb2-33" tabindex="-1"></a><span class="co">#&gt;   attachment.filename</span></span>
-<span id="cb2-34"><a href="#cb2-34" tabindex="-1"></a><span class="co">#&gt; 1                &lt;NA&gt;</span></span>
-<span id="cb2-35"><a href="#cb2-35" tabindex="-1"></a><span class="co">#&gt; 2                &lt;NA&gt;</span></span>
-<span id="cb2-36"><a href="#cb2-36" tabindex="-1"></a><span class="co">#&gt;   attachment.mediaType</span></span>
-<span id="cb2-37"><a href="#cb2-37" tabindex="-1"></a><span class="co">#&gt; 1                 &lt;NA&gt;</span></span>
-<span id="cb2-38"><a href="#cb2-38" tabindex="-1"></a><span class="co">#&gt; 2                 &lt;NA&gt;</span></span>
-<span id="cb2-39"><a href="#cb2-39" tabindex="-1"></a><span class="co">#&gt;   attachment.size</span></span>
-<span id="cb2-40"><a href="#cb2-40" tabindex="-1"></a><span class="co">#&gt; 1              NA</span></span>
-<span id="cb2-41"><a href="#cb2-41" tabindex="-1"></a><span class="co">#&gt; 2              NA</span></span>
-<span id="cb2-42"><a href="#cb2-42" tabindex="-1"></a><span class="co">#&gt;  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 44 rows ]</span></span></code></pre></div>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">#&gt;   formid formId submissionId  answerId elementId externalElementId textAnswer</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co">#&gt; 1 123823 123823     27685292 158263133   1641697          freetext  some text</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">#&gt; 2 123823 123823     27685292 158263124   1641698             radio       &lt;NA&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co">#&gt;   answerOptionIds externalAnswerOptionIds elementType         createdDate</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">#&gt; 1                                            QUESTION 2023-06-01T20:57:15</span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#&gt; 2         3879435                       1       RADIO 2023-06-01T20:57:15</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co">#&gt;          modifiedDate subElementId answerAttachmentId filename mediaType size</span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co">#&gt; 1 2023-06-01T20:57:15           NA                 NA     &lt;NA&gt;      &lt;NA&gt;   NA</span></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt; 2 2023-06-01T20:57:15           NA                 NA     &lt;NA&gt;      &lt;NA&gt;   NA</span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt;   attachment.answerAttachmentId attachment.filename attachment.mediaType</span></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt; 1                            NA                &lt;NA&gt;                 &lt;NA&gt;</span></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">#&gt; 2                            NA                &lt;NA&gt;                 &lt;NA&gt;</span></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co">#&gt;   attachment.size</span></span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="co">#&gt; 1              NA</span></span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a><span class="co">#&gt; 2              NA</span></span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a><span class="co">#&gt;  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 44 rows ]</span></span></code></pre></div>
 <p>Raw data cannot be labelled, and no other alterations have been made
 to the data. They come exactly as the API returns them, so you may do
 what you need with them.</p>
@@ -504,139 +453,80 @@ but are working on a solution for all checkboxes.</p>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  <span class="fu">ns_alter_checkbox</span>(</span>
 <span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>    <span class="at">to =</span> <span class="st">&quot;list&quot;</span></span>
 <span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>  )</span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt;   $submission_id formid</span></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co">#&gt; 1       27685292 123823</span></span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co">#&gt; 2       27685302 123823</span></span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">#&gt;                    $created</span></span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#&gt; 1 2023-06-01T20:57:15+02:00</span></span>
-<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#&gt; 2 2023-06-01T20:58:33+02:00</span></span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co">#&gt;         freetext radio</span></span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="co">#&gt; 1      some text     1</span></span>
-<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="co">#&gt; 2 another answer    -1</span></span>
-<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="co">#&gt;   checkbox.questionnaires</span></span>
-<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="co">#&gt; 1                       1</span></span>
-<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a><span class="co">#&gt; 2                       0</span></span>
-<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a><span class="co">#&gt;   checkbox.events checkbox.logs</span></span>
-<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a><span class="co">#&gt; 1               1             0</span></span>
-<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a><span class="co">#&gt; 2               0             1</span></span>
-<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a><span class="co">#&gt;   dropdown radio_matrix.grants</span></span>
-<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a><span class="co">#&gt; 1        4                   1</span></span>
-<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a><span class="co">#&gt; 2        9                   3</span></span>
-<span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a><span class="co">#&gt;   radio_matrix.lecture</span></span>
-<span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a><span class="co">#&gt; 1                    2</span></span>
-<span id="cb3-25"><a href="#cb3-25" tabindex="-1"></a><span class="co">#&gt; 2                    3</span></span>
-<span id="cb3-26"><a href="#cb3-26" tabindex="-1"></a><span class="co">#&gt;   radio_matrix.email       date</span></span>
-<span id="cb3-27"><a href="#cb3-27" tabindex="-1"></a><span class="co">#&gt; 1                  2 2023-06-01</span></span>
-<span id="cb3-28"><a href="#cb3-28" tabindex="-1"></a><span class="co">#&gt; 2                  1 2023-02-07</span></span>
-<span id="cb3-29"><a href="#cb3-29" tabindex="-1"></a><span class="co">#&gt;    time         datetime</span></span>
-<span id="cb3-30"><a href="#cb3-30" tabindex="-1"></a><span class="co">#&gt; 1 12:00 2023-06-12T13:33</span></span>
-<span id="cb3-31"><a href="#cb3-31" tabindex="-1"></a><span class="co">#&gt; 2 14:45 2024-02-15T08:55</span></span>
-<span id="cb3-32"><a href="#cb3-32" tabindex="-1"></a><span class="co">#&gt;   number_decimal number_integer</span></span>
-<span id="cb3-33"><a href="#cb3-33" tabindex="-1"></a><span class="co">#&gt; 1            4.5           77.0</span></span>
-<span id="cb3-34"><a href="#cb3-34" tabindex="-1"></a><span class="co">#&gt; 2            2.2           45.0</span></span>
-<span id="cb3-35"><a href="#cb3-35" tabindex="-1"></a><span class="co">#&gt;   slider attachment_1 attachment_2</span></span>
-<span id="cb3-36"><a href="#cb3-36" tabindex="-1"></a><span class="co">#&gt; 1      3    sølvi.png             </span></span>
-<span id="cb3-37"><a href="#cb3-37" tabindex="-1"></a><span class="co">#&gt; 2      1               marius.jpeg</span></span>
-<span id="cb3-38"><a href="#cb3-38" tabindex="-1"></a><span class="co">#&gt;   $answer_time_ms checkbox_matrix.1</span></span>
-<span id="cb3-39"><a href="#cb3-39" tabindex="-1"></a><span class="co">#&gt; 1           74630     colleague, IT</span></span>
-<span id="cb3-40"><a href="#cb3-40" tabindex="-1"></a><span class="co">#&gt; 2           71313          internet</span></span>
-<span id="cb3-41"><a href="#cb3-41" tabindex="-1"></a><span class="co">#&gt;   checkbox_matrix.2</span></span>
-<span id="cb3-42"><a href="#cb3-42" tabindex="-1"></a><span class="co">#&gt; 1             admin</span></span>
-<span id="cb3-43"><a href="#cb3-43" tabindex="-1"></a><span class="co">#&gt; 2      admin, union</span></span>
-<span id="cb3-44"><a href="#cb3-44" tabindex="-1"></a><span class="co">#&gt;  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 1 rows ]</span></span></code></pre></div>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt;   $submission_id formid                  $created       freetext radio</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co">#&gt; 1       27685292 123823 2023-06-01T20:57:15+02:00      some text     1</span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co">#&gt; 2       27685302 123823 2023-06-01T20:58:33+02:00 another answer    -1</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">#&gt;   checkbox.questionnaires checkbox.events checkbox.logs dropdown</span></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#&gt; 1                       1               1             0        4</span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#&gt; 2                       0               0             1        9</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co">#&gt;   radio_matrix.grants radio_matrix.lecture radio_matrix.email       date  time</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="co">#&gt; 1                   1                    2                  2 2023-06-01 12:00</span></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="co">#&gt; 2                   3                    3                  1 2023-02-07 14:45</span></span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="co">#&gt;           datetime number_decimal number_integer slider attachment_1</span></span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="co">#&gt; 1 2023-06-12T13:33            4.5           77.0      3    sølvi.png</span></span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a><span class="co">#&gt; 2 2024-02-15T08:55            2.2           45.0      1             </span></span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a><span class="co">#&gt;   attachment_2 $answer_time_ms checkbox_matrix.1 checkbox_matrix.2</span></span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a><span class="co">#&gt; 1                        74630     IT, colleague             admin</span></span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a><span class="co">#&gt; 2  marius.jpeg           71313          internet      admin, union</span></span>
+<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a><span class="co">#&gt;  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 1 rows ]</span></span></code></pre></div>
 <p>These can be separated into rows if wanted, using tidyverse
 syntax.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt; Attaching package: &#39;tidyr&#39;</span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt; The following object is masked from &#39;package:testthat&#39;:</span></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt;     matches</span></span>
-<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt; Attaching package: &#39;dplyr&#39;</span></span>
-<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">#&gt; The following object is masked from &#39;package:testthat&#39;:</span></span>
-<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="co">#&gt;     matches</span></span>
-<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from &#39;package:stats&#39;:</span></span>
-<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="co">#&gt;     filter, lag</span></span>
-<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from &#39;package:base&#39;:</span></span>
-<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a><span class="co">#&gt;     intersect, setdiff,</span></span>
-<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a><span class="co">#&gt;     setequal, union</span></span>
-<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a></span>
-<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a><span class="co"># As list column</span></span>
-<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a><span class="fu">ns_get_data</span>(formid) <span class="sc">|&gt;</span></span>
-<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a>  <span class="fu">ns_alter_checkbox</span>(</span>
-<span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a>    <span class="at">to =</span> <span class="st">&quot;list&quot;</span></span>
-<span id="cb4-26"><a href="#cb4-26" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a>  <span class="fu">relocate</span>(checkbox_matrix<span class="fl">.1</span>, <span class="at">.after =</span> <span class="dv">2</span>)</span>
-<span id="cb4-28"><a href="#cb4-28" tabindex="-1"></a><span class="co">#&gt;   $submission_id formid</span></span>
-<span id="cb4-29"><a href="#cb4-29" tabindex="-1"></a><span class="co">#&gt; 1       27685292 123823</span></span>
-<span id="cb4-30"><a href="#cb4-30" tabindex="-1"></a><span class="co">#&gt; 2       27685302 123823</span></span>
-<span id="cb4-31"><a href="#cb4-31" tabindex="-1"></a><span class="co">#&gt;   checkbox_matrix.1</span></span>
-<span id="cb4-32"><a href="#cb4-32" tabindex="-1"></a><span class="co">#&gt; 1     colleague, IT</span></span>
-<span id="cb4-33"><a href="#cb4-33" tabindex="-1"></a><span class="co">#&gt; 2          internet</span></span>
-<span id="cb4-34"><a href="#cb4-34" tabindex="-1"></a><span class="co">#&gt;                    $created</span></span>
-<span id="cb4-35"><a href="#cb4-35" tabindex="-1"></a><span class="co">#&gt; 1 2023-06-01T20:57:15+02:00</span></span>
-<span id="cb4-36"><a href="#cb4-36" tabindex="-1"></a><span class="co">#&gt; 2 2023-06-01T20:58:33+02:00</span></span>
-<span id="cb4-37"><a href="#cb4-37" tabindex="-1"></a><span class="co">#&gt;         freetext radio</span></span>
-<span id="cb4-38"><a href="#cb4-38" tabindex="-1"></a><span class="co">#&gt; 1      some text     1</span></span>
-<span id="cb4-39"><a href="#cb4-39" tabindex="-1"></a><span class="co">#&gt; 2 another answer    -1</span></span>
-<span id="cb4-40"><a href="#cb4-40" tabindex="-1"></a><span class="co">#&gt;   checkbox.questionnaires</span></span>
-<span id="cb4-41"><a href="#cb4-41" tabindex="-1"></a><span class="co">#&gt; 1                       1</span></span>
-<span id="cb4-42"><a href="#cb4-42" tabindex="-1"></a><span class="co">#&gt; 2                       0</span></span>
-<span id="cb4-43"><a href="#cb4-43" tabindex="-1"></a><span class="co">#&gt;   checkbox.events checkbox.logs</span></span>
-<span id="cb4-44"><a href="#cb4-44" tabindex="-1"></a><span class="co">#&gt; 1               1             0</span></span>
-<span id="cb4-45"><a href="#cb4-45" tabindex="-1"></a><span class="co">#&gt; 2               0             1</span></span>
-<span id="cb4-46"><a href="#cb4-46" tabindex="-1"></a><span class="co">#&gt;   dropdown radio_matrix.grants</span></span>
-<span id="cb4-47"><a href="#cb4-47" tabindex="-1"></a><span class="co">#&gt; 1        4                   1</span></span>
-<span id="cb4-48"><a href="#cb4-48" tabindex="-1"></a><span class="co">#&gt; 2        9                   3</span></span>
-<span id="cb4-49"><a href="#cb4-49" tabindex="-1"></a><span class="co">#&gt;   radio_matrix.lecture</span></span>
-<span id="cb4-50"><a href="#cb4-50" tabindex="-1"></a><span class="co">#&gt; 1                    2</span></span>
-<span id="cb4-51"><a href="#cb4-51" tabindex="-1"></a><span class="co">#&gt; 2                    3</span></span>
-<span id="cb4-52"><a href="#cb4-52" tabindex="-1"></a><span class="co">#&gt;   radio_matrix.email       date</span></span>
-<span id="cb4-53"><a href="#cb4-53" tabindex="-1"></a><span class="co">#&gt; 1                  2 2023-06-01</span></span>
-<span id="cb4-54"><a href="#cb4-54" tabindex="-1"></a><span class="co">#&gt; 2                  1 2023-02-07</span></span>
-<span id="cb4-55"><a href="#cb4-55" tabindex="-1"></a><span class="co">#&gt;    time         datetime</span></span>
-<span id="cb4-56"><a href="#cb4-56" tabindex="-1"></a><span class="co">#&gt; 1 12:00 2023-06-12T13:33</span></span>
-<span id="cb4-57"><a href="#cb4-57" tabindex="-1"></a><span class="co">#&gt; 2 14:45 2024-02-15T08:55</span></span>
-<span id="cb4-58"><a href="#cb4-58" tabindex="-1"></a><span class="co">#&gt;   number_decimal number_integer</span></span>
-<span id="cb4-59"><a href="#cb4-59" tabindex="-1"></a><span class="co">#&gt; 1            4.5           77.0</span></span>
-<span id="cb4-60"><a href="#cb4-60" tabindex="-1"></a><span class="co">#&gt; 2            2.2           45.0</span></span>
-<span id="cb4-61"><a href="#cb4-61" tabindex="-1"></a><span class="co">#&gt;   slider attachment_1 attachment_2</span></span>
-<span id="cb4-62"><a href="#cb4-62" tabindex="-1"></a><span class="co">#&gt; 1      3    sølvi.png             </span></span>
-<span id="cb4-63"><a href="#cb4-63" tabindex="-1"></a><span class="co">#&gt; 2      1               marius.jpeg</span></span>
-<span id="cb4-64"><a href="#cb4-64" tabindex="-1"></a><span class="co">#&gt;   $answer_time_ms checkbox_matrix.2</span></span>
-<span id="cb4-65"><a href="#cb4-65" tabindex="-1"></a><span class="co">#&gt; 1           74630             admin</span></span>
-<span id="cb4-66"><a href="#cb4-66" tabindex="-1"></a><span class="co">#&gt; 2           71313      admin, union</span></span>
-<span id="cb4-67"><a href="#cb4-67" tabindex="-1"></a><span class="co">#&gt;  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 1 rows ]</span></span>
-<span id="cb4-68"><a href="#cb4-68" tabindex="-1"></a></span>
-<span id="cb4-69"><a href="#cb4-69" tabindex="-1"></a></span>
-<span id="cb4-70"><a href="#cb4-70" tabindex="-1"></a><span class="co"># Turns list column, into rows </span></span>
-<span id="cb4-71"><a href="#cb4-71" tabindex="-1"></a><span class="fu">ns_get_data</span>(formid) <span class="sc">|&gt;</span></span>
-<span id="cb4-72"><a href="#cb4-72" tabindex="-1"></a>  <span class="fu">ns_alter_checkbox</span>(</span>
-<span id="cb4-73"><a href="#cb4-73" tabindex="-1"></a>    <span class="at">to =</span> <span class="st">&quot;list&quot;</span></span>
-<span id="cb4-74"><a href="#cb4-74" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb4-75"><a href="#cb4-75" tabindex="-1"></a>  <span class="fu">unnest</span>(checkbox_matrix<span class="fl">.1</span>) <span class="sc">|&gt;</span></span>
-<span id="cb4-76"><a href="#cb4-76" tabindex="-1"></a>  <span class="fu">relocate</span>(checkbox_matrix<span class="fl">.1</span>, <span class="at">.after =</span> <span class="dv">2</span>)</span>
-<span id="cb4-77"><a href="#cb4-77" tabindex="-1"></a><span class="co">#&gt; # A tibble: 5 × 23</span></span>
-<span id="cb4-78"><a href="#cb4-78" tabindex="-1"></a><span class="co">#&gt;   `$submission_id` formid</span></span>
-<span id="cb4-79"><a href="#cb4-79" tabindex="-1"></a><span class="co">#&gt;              &lt;int&gt;  &lt;dbl&gt;</span></span>
-<span id="cb4-80"><a href="#cb4-80" tabindex="-1"></a><span class="co">#&gt; 1         27685292 123823</span></span>
-<span id="cb4-81"><a href="#cb4-81" tabindex="-1"></a><span class="co">#&gt; 2         27685292 123823</span></span>
-<span id="cb4-82"><a href="#cb4-82" tabindex="-1"></a><span class="co">#&gt; 3         27685302 123823</span></span>
-<span id="cb4-83"><a href="#cb4-83" tabindex="-1"></a><span class="co">#&gt; 4         27685319 123823</span></span>
-<span id="cb4-84"><a href="#cb4-84" tabindex="-1"></a><span class="co">#&gt; 5         27685319 123823</span></span>
-<span id="cb4-85"><a href="#cb4-85" tabindex="-1"></a><span class="co">#&gt; # ℹ 21 more variables:</span></span>
-<span id="cb4-86"><a href="#cb4-86" tabindex="-1"></a><span class="co">#&gt; #   checkbox_matrix.1 &lt;chr&gt;,</span></span>
-<span id="cb4-87"><a href="#cb4-87" tabindex="-1"></a><span class="co">#&gt; #   `$created` &lt;chr&gt;,</span></span>
-<span id="cb4-88"><a href="#cb4-88" tabindex="-1"></a><span class="co">#&gt; #   freetext &lt;chr&gt;, radio &lt;int&gt;,</span></span>
-<span id="cb4-89"><a href="#cb4-89" tabindex="-1"></a><span class="co">#&gt; #   checkbox.questionnaires &lt;int&gt;,</span></span>
-<span id="cb4-90"><a href="#cb4-90" tabindex="-1"></a><span class="co">#&gt; #   checkbox.events &lt;int&gt;,</span></span>
-<span id="cb4-91"><a href="#cb4-91" tabindex="-1"></a><span class="co">#&gt; #   checkbox.logs &lt;int&gt;, …</span></span></code></pre></div>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt; Attaching package: &#39;dplyr&#39;</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from &#39;package:stats&#39;:</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt;     filter, lag</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from &#39;package:base&#39;:</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co"># As list column</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="fu">ns_get_data</span>(formid) <span class="sc">|&gt;</span></span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a>  <span class="fu">ns_alter_checkbox</span>(</span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a>    <span class="at">to =</span> <span class="st">&quot;list&quot;</span></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a>  <span class="fu">relocate</span>(checkbox_matrix<span class="fl">.1</span>, <span class="at">.after =</span> <span class="dv">2</span>)</span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a><span class="co">#&gt;   $submission_id formid checkbox_matrix.1                  $created</span></span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a><span class="co">#&gt; 1       27685292 123823     IT, colleague 2023-06-01T20:57:15+02:00</span></span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a><span class="co">#&gt; 2       27685302 123823          internet 2023-06-01T20:58:33+02:00</span></span>
+<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a><span class="co">#&gt;         freetext radio checkbox.questionnaires checkbox.events checkbox.logs</span></span>
+<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a><span class="co">#&gt; 1      some text     1                       1               1             0</span></span>
+<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a><span class="co">#&gt; 2 another answer    -1                       0               0             1</span></span>
+<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a><span class="co">#&gt;   dropdown radio_matrix.grants radio_matrix.lecture radio_matrix.email</span></span>
+<span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a><span class="co">#&gt; 1        4                   1                    2                  2</span></span>
+<span id="cb4-26"><a href="#cb4-26" tabindex="-1"></a><span class="co">#&gt; 2        9                   3                    3                  1</span></span>
+<span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a><span class="co">#&gt;         date  time         datetime number_decimal number_integer slider</span></span>
+<span id="cb4-28"><a href="#cb4-28" tabindex="-1"></a><span class="co">#&gt; 1 2023-06-01 12:00 2023-06-12T13:33            4.5           77.0      3</span></span>
+<span id="cb4-29"><a href="#cb4-29" tabindex="-1"></a><span class="co">#&gt; 2 2023-02-07 14:45 2024-02-15T08:55            2.2           45.0      1</span></span>
+<span id="cb4-30"><a href="#cb4-30" tabindex="-1"></a><span class="co">#&gt;   attachment_1 attachment_2 $answer_time_ms checkbox_matrix.2</span></span>
+<span id="cb4-31"><a href="#cb4-31" tabindex="-1"></a><span class="co">#&gt; 1    sølvi.png                        74630             admin</span></span>
+<span id="cb4-32"><a href="#cb4-32" tabindex="-1"></a><span class="co">#&gt; 2               marius.jpeg           71313      admin, union</span></span>
+<span id="cb4-33"><a href="#cb4-33" tabindex="-1"></a><span class="co">#&gt;  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 1 rows ]</span></span>
+<span id="cb4-34"><a href="#cb4-34" tabindex="-1"></a></span>
+<span id="cb4-35"><a href="#cb4-35" tabindex="-1"></a></span>
+<span id="cb4-36"><a href="#cb4-36" tabindex="-1"></a><span class="co"># Turns list column, into rows</span></span>
+<span id="cb4-37"><a href="#cb4-37" tabindex="-1"></a><span class="fu">ns_get_data</span>(formid) <span class="sc">|&gt;</span></span>
+<span id="cb4-38"><a href="#cb4-38" tabindex="-1"></a>  <span class="fu">ns_alter_checkbox</span>(</span>
+<span id="cb4-39"><a href="#cb4-39" tabindex="-1"></a>    <span class="at">to =</span> <span class="st">&quot;list&quot;</span></span>
+<span id="cb4-40"><a href="#cb4-40" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb4-41"><a href="#cb4-41" tabindex="-1"></a>  <span class="fu">unnest</span>(checkbox_matrix<span class="fl">.1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-42"><a href="#cb4-42" tabindex="-1"></a>  <span class="fu">relocate</span>(checkbox_matrix<span class="fl">.1</span>, <span class="at">.after =</span> <span class="dv">2</span>)</span>
+<span id="cb4-43"><a href="#cb4-43" tabindex="-1"></a><span class="co">#&gt; # A tibble: 5 × 23</span></span>
+<span id="cb4-44"><a href="#cb4-44" tabindex="-1"></a><span class="co">#&gt;   `$submission_id` formid checkbox_matrix.1 `$created`            freetext radio</span></span>
+<span id="cb4-45"><a href="#cb4-45" tabindex="-1"></a><span class="co">#&gt;              &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt;             &lt;chr&gt;                 &lt;chr&gt;    &lt;int&gt;</span></span>
+<span id="cb4-46"><a href="#cb4-46" tabindex="-1"></a><span class="co">#&gt; 1         27685292 123823 IT                2023-06-01T20:57:15+… &quot;some t…     1</span></span>
+<span id="cb4-47"><a href="#cb4-47" tabindex="-1"></a><span class="co">#&gt; 2         27685292 123823 colleague         2023-06-01T20:57:15+… &quot;some t…     1</span></span>
+<span id="cb4-48"><a href="#cb4-48" tabindex="-1"></a><span class="co">#&gt; 3         27685302 123823 internet          2023-06-01T20:58:33+… &quot;anothe…    -1</span></span>
+<span id="cb4-49"><a href="#cb4-49" tabindex="-1"></a><span class="co">#&gt; 4         27685319 123823 colleague         2023-06-01T20:59:50+… &quot;&quot;          -1</span></span>
+<span id="cb4-50"><a href="#cb4-50" tabindex="-1"></a><span class="co">#&gt; 5         27685319 123823 internet          2023-06-01T20:59:50+… &quot;&quot;          -1</span></span>
+<span id="cb4-51"><a href="#cb4-51" tabindex="-1"></a><span class="co">#&gt; # ℹ 17 more variables: checkbox.questionnaires &lt;int&gt;, checkbox.events &lt;int&gt;,</span></span>
+<span id="cb4-52"><a href="#cb4-52" tabindex="-1"></a><span class="co">#&gt; #   checkbox.logs &lt;int&gt;, dropdown &lt;int&gt;, radio_matrix.grants &lt;int&gt;,</span></span>
+<span id="cb4-53"><a href="#cb4-53" tabindex="-1"></a><span class="co">#&gt; #   radio_matrix.lecture &lt;int&gt;, radio_matrix.email &lt;int&gt;, date &lt;chr&gt;,</span></span>
+<span id="cb4-54"><a href="#cb4-54" tabindex="-1"></a><span class="co">#&gt; #   time &lt;chr&gt;, datetime &lt;chr&gt;, number_decimal &lt;chr&gt;, number_integer &lt;chr&gt;,</span></span>
+<span id="cb4-55"><a href="#cb4-55" tabindex="-1"></a><span class="co">#&gt; #   slider &lt;int&gt;, attachment_1 &lt;chr&gt;, attachment_2 &lt;chr&gt;,</span></span>
+<span id="cb4-56"><a href="#cb4-56" tabindex="-1"></a><span class="co">#&gt; #   `$answer_time_ms` &lt;int&gt;, checkbox_matrix.2 &lt;list&gt;</span></span></code></pre></div>
 <p>If you are not used to working with list columns, another option is
 to work with delimited strings in columns. In this procedure, you can
 turn the checkboxes into a character column, where each option in
@@ -648,70 +538,45 @@ separated by a character of your choosing.</p>
 <span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>    <span class="at">sep =</span> <span class="st">&quot;;&quot;</span></span>
 <span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
 <span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>  <span class="fu">relocate</span>(checkbox_matrix<span class="fl">.1</span>, <span class="at">.after =</span> <span class="dv">2</span>)</span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="co">#&gt;   $submission_id formid</span></span>
-<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="co">#&gt; 1       27685292 123823</span></span>
-<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="co">#&gt; 2       27685302 123823</span></span>
-<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="co">#&gt;   checkbox_matrix.1</span></span>
-<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="co">#&gt; 1      colleague;IT</span></span>
-<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a><span class="co">#&gt; 2          internet</span></span>
-<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="co">#&gt;                    $created</span></span>
-<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a><span class="co">#&gt; 1 2023-06-01T20:57:15+02:00</span></span>
-<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a><span class="co">#&gt; 2 2023-06-01T20:58:33+02:00</span></span>
-<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a><span class="co">#&gt;         freetext radio</span></span>
-<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a><span class="co">#&gt; 1      some text     1</span></span>
-<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a><span class="co">#&gt; 2 another answer    -1</span></span>
-<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a><span class="co">#&gt;   checkbox.questionnaires</span></span>
-<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a><span class="co">#&gt; 1                       1</span></span>
-<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a><span class="co">#&gt; 2                       0</span></span>
-<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a><span class="co">#&gt;   checkbox.events checkbox.logs</span></span>
-<span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a><span class="co">#&gt; 1               1             0</span></span>
-<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a><span class="co">#&gt; 2               0             1</span></span>
-<span id="cb5-26"><a href="#cb5-26" tabindex="-1"></a><span class="co">#&gt;   dropdown radio_matrix.grants</span></span>
-<span id="cb5-27"><a href="#cb5-27" tabindex="-1"></a><span class="co">#&gt; 1        4                   1</span></span>
-<span id="cb5-28"><a href="#cb5-28" tabindex="-1"></a><span class="co">#&gt; 2        9                   3</span></span>
-<span id="cb5-29"><a href="#cb5-29" tabindex="-1"></a><span class="co">#&gt;   radio_matrix.lecture</span></span>
-<span id="cb5-30"><a href="#cb5-30" tabindex="-1"></a><span class="co">#&gt; 1                    2</span></span>
-<span id="cb5-31"><a href="#cb5-31" tabindex="-1"></a><span class="co">#&gt; 2                    3</span></span>
-<span id="cb5-32"><a href="#cb5-32" tabindex="-1"></a><span class="co">#&gt;   radio_matrix.email       date</span></span>
-<span id="cb5-33"><a href="#cb5-33" tabindex="-1"></a><span class="co">#&gt; 1                  2 2023-06-01</span></span>
-<span id="cb5-34"><a href="#cb5-34" tabindex="-1"></a><span class="co">#&gt; 2                  1 2023-02-07</span></span>
-<span id="cb5-35"><a href="#cb5-35" tabindex="-1"></a><span class="co">#&gt;    time         datetime</span></span>
-<span id="cb5-36"><a href="#cb5-36" tabindex="-1"></a><span class="co">#&gt; 1 12:00 2023-06-12T13:33</span></span>
-<span id="cb5-37"><a href="#cb5-37" tabindex="-1"></a><span class="co">#&gt; 2 14:45 2024-02-15T08:55</span></span>
-<span id="cb5-38"><a href="#cb5-38" tabindex="-1"></a><span class="co">#&gt;   number_decimal number_integer</span></span>
-<span id="cb5-39"><a href="#cb5-39" tabindex="-1"></a><span class="co">#&gt; 1            4.5           77.0</span></span>
-<span id="cb5-40"><a href="#cb5-40" tabindex="-1"></a><span class="co">#&gt; 2            2.2           45.0</span></span>
-<span id="cb5-41"><a href="#cb5-41" tabindex="-1"></a><span class="co">#&gt;   slider attachment_1 attachment_2</span></span>
-<span id="cb5-42"><a href="#cb5-42" tabindex="-1"></a><span class="co">#&gt; 1      3    sølvi.png             </span></span>
-<span id="cb5-43"><a href="#cb5-43" tabindex="-1"></a><span class="co">#&gt; 2      1               marius.jpeg</span></span>
-<span id="cb5-44"><a href="#cb5-44" tabindex="-1"></a><span class="co">#&gt;   $answer_time_ms checkbox_matrix.2</span></span>
-<span id="cb5-45"><a href="#cb5-45" tabindex="-1"></a><span class="co">#&gt; 1           74630             admin</span></span>
-<span id="cb5-46"><a href="#cb5-46" tabindex="-1"></a><span class="co">#&gt; 2           71313       admin;union</span></span>
-<span id="cb5-47"><a href="#cb5-47" tabindex="-1"></a><span class="co">#&gt;  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 1 rows ]</span></span>
-<span id="cb5-48"><a href="#cb5-48" tabindex="-1"></a>  </span>
-<span id="cb5-49"><a href="#cb5-49" tabindex="-1"></a><span class="co"># Turns string column, into rows </span></span>
-<span id="cb5-50"><a href="#cb5-50" tabindex="-1"></a><span class="fu">ns_get_data</span>(formid) <span class="sc">|&gt;</span></span>
-<span id="cb5-51"><a href="#cb5-51" tabindex="-1"></a>  <span class="fu">ns_alter_checkbox</span>(</span>
-<span id="cb5-52"><a href="#cb5-52" tabindex="-1"></a>    <span class="at">to =</span> <span class="st">&quot;character&quot;</span>,</span>
-<span id="cb5-53"><a href="#cb5-53" tabindex="-1"></a>    <span class="at">sep =</span> <span class="st">&quot;;&quot;</span></span>
-<span id="cb5-54"><a href="#cb5-54" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb5-55"><a href="#cb5-55" tabindex="-1"></a>  <span class="fu">relocate</span>(checkbox_matrix<span class="fl">.1</span>, <span class="at">.after =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span></span>
-<span id="cb5-56"><a href="#cb5-56" tabindex="-1"></a>  <span class="fu">separate_rows</span>(checkbox_matrix<span class="fl">.1</span>)</span>
-<span id="cb5-57"><a href="#cb5-57" tabindex="-1"></a><span class="co">#&gt; # A tibble: 5 × 23</span></span>
-<span id="cb5-58"><a href="#cb5-58" tabindex="-1"></a><span class="co">#&gt;   `$submission_id` formid</span></span>
-<span id="cb5-59"><a href="#cb5-59" tabindex="-1"></a><span class="co">#&gt;              &lt;int&gt;  &lt;dbl&gt;</span></span>
-<span id="cb5-60"><a href="#cb5-60" tabindex="-1"></a><span class="co">#&gt; 1         27685292 123823</span></span>
-<span id="cb5-61"><a href="#cb5-61" tabindex="-1"></a><span class="co">#&gt; 2         27685292 123823</span></span>
-<span id="cb5-62"><a href="#cb5-62" tabindex="-1"></a><span class="co">#&gt; 3         27685302 123823</span></span>
-<span id="cb5-63"><a href="#cb5-63" tabindex="-1"></a><span class="co">#&gt; 4         27685319 123823</span></span>
-<span id="cb5-64"><a href="#cb5-64" tabindex="-1"></a><span class="co">#&gt; 5         27685319 123823</span></span>
-<span id="cb5-65"><a href="#cb5-65" tabindex="-1"></a><span class="co">#&gt; # ℹ 21 more variables:</span></span>
-<span id="cb5-66"><a href="#cb5-66" tabindex="-1"></a><span class="co">#&gt; #   checkbox_matrix.1 &lt;chr&gt;,</span></span>
-<span id="cb5-67"><a href="#cb5-67" tabindex="-1"></a><span class="co">#&gt; #   `$created` &lt;chr&gt;,</span></span>
-<span id="cb5-68"><a href="#cb5-68" tabindex="-1"></a><span class="co">#&gt; #   freetext &lt;chr&gt;, radio &lt;int&gt;,</span></span>
-<span id="cb5-69"><a href="#cb5-69" tabindex="-1"></a><span class="co">#&gt; #   checkbox.questionnaires &lt;int&gt;,</span></span>
-<span id="cb5-70"><a href="#cb5-70" tabindex="-1"></a><span class="co">#&gt; #   checkbox.events &lt;int&gt;,</span></span>
-<span id="cb5-71"><a href="#cb5-71" tabindex="-1"></a><span class="co">#&gt; #   checkbox.logs &lt;int&gt;, …</span></span></code></pre></div>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="co">#&gt;   $submission_id formid checkbox_matrix.1                  $created</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="co">#&gt; 1       27685292 123823      IT;colleague 2023-06-01T20:57:15+02:00</span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="co">#&gt; 2       27685302 123823          internet 2023-06-01T20:58:33+02:00</span></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="co">#&gt;         freetext radio checkbox.questionnaires checkbox.events checkbox.logs</span></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="co">#&gt; 1      some text     1                       1               1             0</span></span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a><span class="co">#&gt; 2 another answer    -1                       0               0             1</span></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="co">#&gt;   dropdown radio_matrix.grants radio_matrix.lecture radio_matrix.email</span></span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a><span class="co">#&gt; 1        4                   1                    2                  2</span></span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a><span class="co">#&gt; 2        9                   3                    3                  1</span></span>
+<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a><span class="co">#&gt;         date  time         datetime number_decimal number_integer slider</span></span>
+<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a><span class="co">#&gt; 1 2023-06-01 12:00 2023-06-12T13:33            4.5           77.0      3</span></span>
+<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a><span class="co">#&gt; 2 2023-02-07 14:45 2024-02-15T08:55            2.2           45.0      1</span></span>
+<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a><span class="co">#&gt;   attachment_1 attachment_2 $answer_time_ms checkbox_matrix.2</span></span>
+<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a><span class="co">#&gt; 1    sølvi.png                        74630             admin</span></span>
+<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a><span class="co">#&gt; 2               marius.jpeg           71313       admin;union</span></span>
+<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a><span class="co">#&gt;  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 1 rows ]</span></span>
+<span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a><span class="co"># Turns string column, into rows</span></span>
+<span id="cb5-26"><a href="#cb5-26" tabindex="-1"></a><span class="fu">ns_get_data</span>(formid) <span class="sc">|&gt;</span></span>
+<span id="cb5-27"><a href="#cb5-27" tabindex="-1"></a>  <span class="fu">ns_alter_checkbox</span>(</span>
+<span id="cb5-28"><a href="#cb5-28" tabindex="-1"></a>    <span class="at">to =</span> <span class="st">&quot;character&quot;</span>,</span>
+<span id="cb5-29"><a href="#cb5-29" tabindex="-1"></a>    <span class="at">sep =</span> <span class="st">&quot;;&quot;</span></span>
+<span id="cb5-30"><a href="#cb5-30" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb5-31"><a href="#cb5-31" tabindex="-1"></a>  <span class="fu">relocate</span>(checkbox_matrix<span class="fl">.1</span>, <span class="at">.after =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-32"><a href="#cb5-32" tabindex="-1"></a>  <span class="fu">separate_rows</span>(checkbox_matrix<span class="fl">.1</span>)</span>
+<span id="cb5-33"><a href="#cb5-33" tabindex="-1"></a><span class="co">#&gt; # A tibble: 5 × 23</span></span>
+<span id="cb5-34"><a href="#cb5-34" tabindex="-1"></a><span class="co">#&gt;   `$submission_id` formid checkbox_matrix.1 `$created`            freetext radio</span></span>
+<span id="cb5-35"><a href="#cb5-35" tabindex="-1"></a><span class="co">#&gt;              &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt;             &lt;chr&gt;                 &lt;chr&gt;    &lt;int&gt;</span></span>
+<span id="cb5-36"><a href="#cb5-36" tabindex="-1"></a><span class="co">#&gt; 1         27685292 123823 IT                2023-06-01T20:57:15+… &quot;some t…     1</span></span>
+<span id="cb5-37"><a href="#cb5-37" tabindex="-1"></a><span class="co">#&gt; 2         27685292 123823 colleague         2023-06-01T20:57:15+… &quot;some t…     1</span></span>
+<span id="cb5-38"><a href="#cb5-38" tabindex="-1"></a><span class="co">#&gt; 3         27685302 123823 internet          2023-06-01T20:58:33+… &quot;anothe…    -1</span></span>
+<span id="cb5-39"><a href="#cb5-39" tabindex="-1"></a><span class="co">#&gt; 4         27685319 123823 colleague         2023-06-01T20:59:50+… &quot;&quot;          -1</span></span>
+<span id="cb5-40"><a href="#cb5-40" tabindex="-1"></a><span class="co">#&gt; 5         27685319 123823 internet          2023-06-01T20:59:50+… &quot;&quot;          -1</span></span>
+<span id="cb5-41"><a href="#cb5-41" tabindex="-1"></a><span class="co">#&gt; # ℹ 17 more variables: checkbox.questionnaires &lt;int&gt;, checkbox.events &lt;int&gt;,</span></span>
+<span id="cb5-42"><a href="#cb5-42" tabindex="-1"></a><span class="co">#&gt; #   checkbox.logs &lt;int&gt;, dropdown &lt;int&gt;, radio_matrix.grants &lt;int&gt;,</span></span>
+<span id="cb5-43"><a href="#cb5-43" tabindex="-1"></a><span class="co">#&gt; #   radio_matrix.lecture &lt;int&gt;, radio_matrix.email &lt;int&gt;, date &lt;chr&gt;,</span></span>
+<span id="cb5-44"><a href="#cb5-44" tabindex="-1"></a><span class="co">#&gt; #   time &lt;chr&gt;, datetime &lt;chr&gt;, number_decimal &lt;chr&gt;, number_integer &lt;chr&gt;,</span></span>
+<span id="cb5-45"><a href="#cb5-45" tabindex="-1"></a><span class="co">#&gt; #   slider &lt;int&gt;, attachment_1 &lt;chr&gt;, attachment_2 &lt;chr&gt;,</span></span>
+<span id="cb5-46"><a href="#cb5-46" tabindex="-1"></a><span class="co">#&gt; #   `$answer_time_ms` &lt;int&gt;, checkbox_matrix.2 &lt;chr&gt;</span></span></code></pre></div>
 </div>
 </div>
 

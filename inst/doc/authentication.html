@@ -48,8 +48,9 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -60,7 +61,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -350,10 +351,12 @@ operations.</p>
 <h2>Setting Up Authentication</h2>
 <div id="setting-up-a-client" class="section level3">
 <h3>Setting up a client</h3>
-<p>Before using the functions, you need the following: 1. <strong>A
-registered API client</strong> in Nettskjema. 2. <strong>Your client
-credentials</strong> (client ID and client secret). These are provided
-when you register the client.</p>
+<p>Before using the functions, you need the following:</p>
+<ol style="list-style-type: decimal">
+<li><strong>A registered API client</strong> in Nettskjema.</li>
+<li><strong>Your client credentials</strong> (client ID and client
+secret). These are provided when you register the client.</li>
+</ol>
 <p>To register a client go to the <a href="https://authorization.nettskjema.no/">nettskjema authorization
 portal</a> or use the <code>ns_create_client()</code> function to open
 the url. Here you will be asked to log in with your user account, so you
@@ -383,53 +386,43 @@ Nettskjema.</p>
 <li><p>Restart your R session to the load changes.</p></li>
 </ol>
 </div>
-<div id="retrieve-the-access-token" class="section level3">
-<h3>Retrieve the Access Token</h3>
-<p>Use the <code>ns_auth_token</code> function to retrieve your access
-token. This function exchanges your client credentials for a valid
-token. The token is cached by default for efficiency.</p>
+<div id="check-your-situation-report" class="section level3">
+<h3>Check your Situation report</h3>
+<p>Once you have these two environment variables set, you should check
+your status with connecting to the API by running
+<code>ns_sitrep()</code>. This function should give you a clear report
+on whether you are ready to connect to the API.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">library</span>(nettskjemar)</span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co"># Try getting your user information</span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="fu">ns_get_me</span>()</span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt; $isPersonalDataResponsible</span></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="fu">ns_sitrep</span>()</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt; ── Nettskjema API Sitrep ───────────────────────────────────────────────────────</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co">#&gt; ✔ nettskjemar version: 1.0.3</span></span>
 <span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">#&gt; $displayName</span></span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#&gt; [1] &quot;ccda25ce-8256-4c6f-ba71-7a4357dc6caf@apiclient&quot;</span></span>
-<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co">#&gt; $logoutLink</span></span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="co">#&gt; [1] &quot;/signout&quot;</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">#&gt; ── Nettskjema API Configuration ──</span></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#&gt; ℹ API URL is set to: &quot;https://nettskjema.no/api/v3/&quot;</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co">#&gt; ✔ Client ID: Valid format and length.</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="co">#&gt; ✔ Client Secret: Valid format and length.</span></span>
 <span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="co">#&gt; $isSuperUser</span></span>
-<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
-<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a><span class="co">#&gt; $isAuthenticated</span></span>
-<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span>
-<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a><span class="co">#&gt; $userType</span></span>
-<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a><span class="co">#&gt; [1] &quot;UNKNOWN_ROLE&quot;</span></span>
-<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a><span class="co">#&gt; $hasAcceptedTos</span></span>
-<span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span>
-<span id="cb3-25"><a href="#cb3-25" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb3-26"><a href="#cb3-26" tabindex="-1"></a><span class="co">#&gt; $isSupportUser</span></span>
-<span id="cb3-27"><a href="#cb3-27" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
-<span id="cb3-28"><a href="#cb3-28" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb3-29"><a href="#cb3-29" tabindex="-1"></a><span class="co">#&gt; $isAdministrativeUser</span></span>
-<span id="cb3-30"><a href="#cb3-30" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span>
-<span id="cb3-31"><a href="#cb3-31" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb3-32"><a href="#cb3-32" tabindex="-1"></a><span class="co">#&gt; $isInLdapGroupUioTils</span></span>
-<span id="cb3-33"><a href="#cb3-33" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
-<p>If this returns a data.frame of all the forms this client has access
-to.</p>
-<p>By default, the token is stored in your home directory as
-<code>.nettskjema_token.rds</code> with a 24-hour validity period (max
-validity of a token). The token is automatically refreshed after the
-24–hour period is over, and you as a user should not even notice that
-this happens.</p>
-<p>You can configure the caching path using the <code>cache_path</code>
-argument of the function, if you are comfortable doing that.</p>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="co">#&gt; ── API Connectivity ──</span></span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a><span class="co">#&gt; ✔ Successfully connected to API</span></span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a><span class="co">#&gt; ℹ Tested by fetching client profile</span></span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a><span class="co">#&gt; ── Environment ──</span></span>
+<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a><span class="co">#&gt; ✔ R version: &quot;R version 4.5.1 (2025-06-13)&quot;</span></span>
+<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a><span class="co">#&gt; ✔ OS: &quot;Darwin&quot; &quot;24.6.0&quot;</span></span>
+<span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a><span class="co">#&gt; ────────────────────────────────────────────────────────────────────────────────</span></span></code></pre></div>
+<p>The situation report will inform you if:</p>
+<ul>
+<li>Your client ID and client secret are set.</li>
+<li>You can successfully authenticate with the Nettskjema API.</li>
+<li>You have access to any forms through the API.</li>
+</ul>
+<p>If everything is set up correctly, you should see a message
+indicating that you are authenticated and ready to use the API.</p>
 </div>
 <div id="accessing-forms" class="section level3">
 <h3>Accessing forms</h3>
@@ -512,23 +505,18 @@ members.</p>
 <li><strong>Invalid Credentials</strong>: Ensure your client ID and
 client secret are correct and have been properly registered in
 Nettskjema.</li>
-<li><strong>Token Expiry</strong>: Tokens are valid for 24 hours by
-default. Re-run <code>ns_auth_token</code> to refresh the token, though
-this should generally not be necessary, as it is run in the
-background.</li>
 <li><strong>Environment Variables Not Loaded</strong>: Ensure you’ve
-added your credentials to <code>.Renviron</code> and restarted your R
-session, the last part is necessary for R to access the new
-information.</li>
+added your credentials to <code>.Renviron</code> <strong>and</strong>
+restarted your R session, the last part is necessary for R to access the
+new information. Subsequent R sessions should automatically load the
+credentials from <code>.Renviron</code>.</li>
 </ol>
 </div>
 <div id="more-information" class="section level2">
 <h2>More information</h2>
 <p>More information about the client authentication can be found on the
 <a href="https://www.uio.no/tjenester/it/adm-app/nettskjema/hjelp/api-clients-v3.md">UiO
-webpages</a>.</p>
-<p>You can find more information about the Nettskjema v3 API on the <a href="https://www.uio.no/tjenester/it/adm-app/nettskjema/hjelp/api-clients-v3.md">official
-UiO documentation pages</a>.</p>
+webpages</a>, where the remaining API is documented.</p>
 </div>
 
 

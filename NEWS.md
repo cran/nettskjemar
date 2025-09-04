@@ -1,5 +1,13 @@
 # nettskjemar (development version)
 
+# nettskjemar 1.0.3
+
+- Added `ns_sitrep()`
+- Added "Custom requests" vignette
+- Switched to cassettes in vignettes
+- Use cassettes in appropriate examples
+- Make sure Haven labelled data retains empty values as <NA>.
+
 # nettskjemar 1.0.2
 
 - Uses OAuth client for managing credentials
